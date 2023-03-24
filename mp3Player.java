@@ -99,6 +99,7 @@ class Mp3Player{
         ArrayList<Song> SadSongs = new ArrayList<Song>();
         ArrayList<Song> DefaultSongs = new ArrayList<Song>();
         ArrayList<Song> DanceSongs = new ArrayList<Song>();
+
         HappySongs.add(s1);
         HappySongs.add(s2);
         HappySongs.add(s3);
@@ -217,6 +218,32 @@ class Mp3Player{
     void playNext(){
         currPlaylist.playNextSong();
     }
+
+    void changePlaylist(String playlistName){
+        if (currState == "OFF"){
+            System.out.println("No Playlist Being Played");
+            System.out.println("Command to Start Playlist");
+        }
+        else{
+            if (track.containsKey(playlistName)){
+                System.out.print("Playlist Changed and Playing : ");
+                if (playlistName == "Happy"){
+                    currPlaylist = HappyPlaylist;
+                }
+                else if (playlistName == "Sad"){
+                    currPlaylist = SadPlaylist;
+                }
+                else if (playlistName == "Dance"){
+                    currPlaylist = DancePlaylist;
+                }
+            }
+            else{
+                System.out.print("Playlist Not Found Hence, Started Playing : ");
+                currPlaylist = DefaultPlaylist;
+            }
+            currPlaylist.getplaylistName();
+        }
+    }
 }
 
 class Mp3PlayerManager{
@@ -237,5 +264,7 @@ class Mp3PlayerManager{
         // player.playNext();
         // player.playNext();
         // player.playNext();
+        // player.changePlaylist("Sad");
+        // player.getCurrentSong();
     }
 }
