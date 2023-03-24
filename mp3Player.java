@@ -227,6 +227,8 @@ class Mp3PlayerManager{
         // player.getCurrentArtist();
         // player.getnextSongInQueue();
         // player.getCurrentPlaylist();
+        // player.Pause();
+        // player.Play();
         // player.Stop();
         // player.PlayPlaylist("Happy");
         // player.playNext();
